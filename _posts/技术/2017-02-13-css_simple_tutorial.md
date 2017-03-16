@@ -4,8 +4,8 @@ title: css简明教程
 subtitle: css
 author: sincat
 date: 2017-02-13 18:15:15 +0800
-categories: 技术
-tag: css
+category: 技术
+tags: css
 published: true
 ---
 
