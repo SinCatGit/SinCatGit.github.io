@@ -5330,18 +5330,15 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     padding: 10px 15px;
     margin-bottom: -1px;
     color: #fff;
-    background-color: #1abc9c;
-    border: 0px solid #1abc9c;/*115449;*/
-    border-left: 0px;
-    border-right: 0px;
-    /*border: 0px solid #ddd;*/
-    margin-right: 0px; margin-left: 35px; 
+    background-color: #37B353;
+    border: 0 solid #37B363;
+    margin-right: 0; margin-left: 35px;
 }
 
 a.list-group-item-lay:hover, a.list-group-item-lay:focus {
     text-decoration: none;
     color: #fff;
-    background-color: #16a085;
+    background-color: #37D353;
 }
 
 .list-group-item-lay:first-child {
