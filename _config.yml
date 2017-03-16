@@ -1,0 +1,48 @@
+permalink: /:year/:month/:day/:title.html
+paginate: 10
+markdown: kramdown
+
+# 作者信息
+author: 
+  name: Shumao Qin
+  email: sincat@126.com
+  link: https://SinCatGit.github.io/
+  weibo: http://weibo.com/u/
+  github: http://github.com/sincatgit
+  music: https://www.douban.com/people/
+  linkedin: http://www.linkedin.com/in/
+
+# 站点信息
+title: 麦子
+description: My personal blog
+url: https://sincatgit.github.io/
+rss_url: /pages/atom.xml
+
+# gavatar头像及Favicon
+gavatar: /public/img/avatar.jpg
+favicon: /public/img/avatar.jpg
+
+# google analytics 设置
+ga:
+  id: UA-93832465-1
+  url: sincatgit.github.io
+
+# disqus 设置
+disqus:
+  shortname: shumaoqin
+
+# 主题设置，自动激活某个标签
+active: 技术
+
+# 首页除了最新文章外显示分类
+cates:
+  - 思考
+
+# 中文本地化
+locals:
+  tags: 标签
+  about: 关于
+  newest: 最新文章
+  archive: 归档
+
+gems: [jekyll-paginate]
