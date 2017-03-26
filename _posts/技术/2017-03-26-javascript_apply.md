@@ -3,7 +3,7 @@ layout: post
 title: javascript的apply、call、bind
 subtitle: javascript basics
 author: sincat
-date: 2017-03-20 10:37:15 +0800
+date: 2017-03-27 23:50:15 +0800
 category: 技术
 tags: javascript
 published: true
