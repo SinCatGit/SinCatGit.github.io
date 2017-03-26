@@ -1,7 +1,7 @@
 ---
 layout: post
 title: javascript的apply、call、bind
-subtitle: javascript basics
+subtitle: javascript apply
 author: sincat
 date: 2017-03-27 23:50:15 +0800
 category: 技术

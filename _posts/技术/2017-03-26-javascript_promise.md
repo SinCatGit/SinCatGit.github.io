@@ -1,7 +1,7 @@
 ---
 layout: post
 title: javascript的promise
-subtitle: javascript basics
+subtitle: javascript promise
 author: sincat
 date: 2017-03-26 23:57:15 +0800
 category: 技术
