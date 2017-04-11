@@ -12,3 +12,5 @@ published: true
 ## 参考MDN
 
     https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise
+    http://liubin.org/promises-book/
+    https://wohugb.gitbooks.io/promise/content/what/indexmd.html
