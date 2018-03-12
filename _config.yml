@@ -19,8 +19,8 @@ url: https://sincatgit.github.io/
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: /public/img/avatar.jpg
-favicon: /public/img/avatar.jpg
+gavatar: /public/img/avatar.png
+favicon: /public/img/avatar.png
 
 # google analytics 设置
 ga:

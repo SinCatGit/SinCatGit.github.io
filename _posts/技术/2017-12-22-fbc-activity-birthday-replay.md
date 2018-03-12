@@ -22,6 +22,7 @@ published: true
     3.启动服务器后，添加ip白名单到数据库；
     4.添加服务器到负载均衡；
     5.负载均衡ip解析到访问域名；
+    6.负载均衡采用七层http协议，可以监控4XX、5XX返回码
 
 静态文件CDN
 
@@ -45,6 +46,7 @@ redis扩容
     2.tail -f /var/log/nginx/access.log|awk '{print $9}'
     3.sudo tail -f /var/log/nginx/access.log|awk '{print $9}'
     4.查看499
+    
     
 celery Worker图片处理
     
@@ -72,7 +74,7 @@ Django框架的MemCache
 自动化部署
     
     1.使用fabric
-    2.免密码输入
+    2.免密码输入 ssh-rsa
 
 队列监控
     
