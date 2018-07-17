@@ -115,11 +115,24 @@ vi /etc/sudoers
 ## 安装python及pip ##
 
 centos自带python 2.7.5
+    
+    sudo yum install python-devel # 安装python开发相关包
 
 安装pip
 
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     sudo python get-pip.py
+
+设置pip国内源
+
+    sudo vim /etc/pip.conf
+
+添加如下内容，设置pip源为豆瓣源
+
+    [global]
+    trusted-host = pypi.douban.com
+    index-url = https://pypi.douban.com/simple
+    
 
 ## 安装supervisor ##
 
@@ -221,4 +234,8 @@ mysql有一个安全脚本，改变一些不安全的缺省设置，执行如下
     mysql> create database jed; // 创建数据库
     mysql> use jed; //访问数据库jed
     mysql> show tables; //查看数据表
+
+6.mysql开发相关的安装包
+
+    sudo yum install mysql-community-devel
     
