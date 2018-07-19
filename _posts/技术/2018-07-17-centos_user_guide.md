@@ -61,6 +61,18 @@ published: true
 
     du -sh /usr/
     
+## systemctl系统管理命令 ##
+
+systemctl是Systemd的一个主命令。Systemd 并不是一个命令，而是一组命令，涉及到系统管理的方方面面。
+
+    systemctl start cups.service # 启动电源管理服务 
+    systemctl stop cups.service # 停止电源管理服务 
+    systemctl status cups.service # 查看电源管理状态
+    systemctl enable cups.service # 启动电源管理开机启动 
+    systemctl disable cups.service # 停止电源管理开机启动
+     
+   
+    
     
     
     
