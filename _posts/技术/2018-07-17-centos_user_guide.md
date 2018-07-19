@@ -37,4 +37,32 @@ published: true
     systemctl stop firewalld.service #停止firewall
     systemctl disable firewalld.service #禁止firewall开机启动
     firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+    
+
+## 磁盘使用 ##
+
+1.查看当前目录
+
+    df -h
+    
+2.查看指定目录
+
+    df -h /usr/
+
+3.查看当前目录文件夹情况
+
+    du --max-depth=1 -h 
+
+4.查看指定目录
+
+    du --max-depth=1 -h  /usr/
+
+5.计算文件夹大小
+
+    du -sh /usr/
+    
+    
+    
+    
+
 
