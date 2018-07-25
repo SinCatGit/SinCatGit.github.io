@@ -21,7 +21,7 @@ vi /etc/sudoers
 在文件中新增一行
 
     root ALL=(ALL) ALL
-    shumao ALL=(ALL) ALL  //这一行是新增行
+    jon ALL=(ALL) ALL  //这一行是新增行
 
 
 使用su - jon，切换到 jon 用户环境下
@@ -239,3 +239,118 @@ mysql有一个安全脚本，改变一些不安全的缺省设置，执行如下
 
     sudo yum install mysql-community-devel
     
+## 安装postgresql ##
+
+### 安装 ###
+
+    sudo yum install postgresql-server postgresql-contrib
+
+创建database cluster
+
+    sudo postgresql-setup initdb
+
+缺省情况下，PostgreSQL不能密码授权，可以编辑HBA(host-based authentication)配置，改为密码授权
+
+    sudo vi /var/lib/pgsql/data/pg_hba.conf
+
+在文件最后找到如下内容：
+
+    host    all             all             127.0.0.1/32            ident
+    host    all             all             ::1/128                 ident
+    
+把ident替换为md5
+
+    host    all             all             127.0.0.1/32            md5
+    host    all             all             ::1/128                 md5
+
+启动，并设置开机启动PostgreSQL:
+
+    sudo systemctl start postgresql
+    sudo systemctl enable postgresql
+    
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7
+
+## 安装java ##
+
+    yum install java-1.8.0-openjdk
+    yum install java-1.8.0-openjdk-devel
+
+配置环境变量,vi /etc/profile 文件末尾添加如下内容
+
+    export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.171-8.b10.el7_5.x86_64/
+    export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+    export PATH=$PATH:$JAVA_HOME/bin
+    
+然后执行如下命令
+
+    source /etc/profile
+    
+让配置生效
+
+    java -version # 查看java版本
+
+## 安装scala ##
+
+1.确保java版本1.8以上
+
+    java -version
+
+2.下载scala包
+
+下载并解压文件
+
+    wget https://downloads.lightbend.com/scala/2.12.6/scala-2.12.6.tgz
+    tar -xzvf scala-2.12.6.tgz
+    
+重命名并移至/usr/local/share/
+
+    mv scala-2.12.6 scala
+    mv /download/scalapath /usr/local/share
+    
+修改环境变量,修改配置文件profile
+
+    sudo vim /etc/profile
+
+在文件的末尾加入
+
+    export PATH=$PATH:/usr/local/share/scala/bin
+    
+然后保存，重启终端，执行Scala命令
+
+使用了zsh终端的，可以在~/.zshrc文件末尾添加如上内容
+
+
+## 安装sbt ##
+
+下载sbt-1.1.6
+
+    wget https://piccolo.link/sbt-1.1.6.tgz
+    tar -xvzf sbt-1.1.6.tgz
+    mv sbt /usr/local/sbt
+    cd /usr/local/sbt
+    vi sbt
+    
+添加如下内容
+
+    #!/bin/bash
+    SBT_OPTS="-Xms512M -Xmx1536M -Xss100M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+    java $SBT_OPTS -jar /usr/local/sbt/bin/sbt-launch.jar "$@"
+    
+修改sbt脚本权限
+
+    sudo chmod a+x sbt
+
+配置PATH环境
+
+    vi /etc/profile
+    export PATH=/usr/local/sbt/:$PATH # 在文件尾部添加
+    
+使sbt生效
+
+    source /etc/profile
+
+测试sbt是否安装成功
+
+    sbt sbtVersion
+
