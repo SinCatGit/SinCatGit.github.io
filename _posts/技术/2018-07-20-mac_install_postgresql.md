@@ -13,10 +13,12 @@ published: true
 
 1. 安装postgresql
 
+
     brew install postgresql
     pg_ctl -D /usr/local/var/postgres start # 前台启动
     pg_ctl -D /usr/local/var/postgres stop # 关闭
     brew services start postgresql # 设置开机启动
+
 
 创建用户名数据库
 

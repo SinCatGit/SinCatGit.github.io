@@ -16,7 +16,7 @@ centos的/var目录下新建www目录
 
     cd /var
     sudo mkdir www
-    sudo chmod a+x www # 所有用户具有写权限
+    sudo chmod a+w www # 所有用户具有写权限
     
 一般我们的web工程都放在 `/var/www`下面，放在`/var/www/`目录下。 
 
@@ -43,6 +43,7 @@ uWsgi
     
     sudo yum install python-devel # python开发相关
     sudo pip install uwsgi
+    sudo yum -y install mysql-devel # python操作mysql 
 
 执行下面的命令,测试uWsgi+Django是否能正常启动Web服务
 

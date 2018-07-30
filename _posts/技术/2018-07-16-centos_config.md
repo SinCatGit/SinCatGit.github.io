@@ -238,12 +238,13 @@ mysql有一个安全脚本，改变一些不安全的缺省设置，执行如下
 6.mysql开发相关的安装包
 
     sudo yum install mysql-community-devel
+    sudo yum -y install mysql-devel
     
 ## 安装postgresql ##
 
 ### 安装 ###
 
-    sudo yum install postgresql-server postgresql-contrib
+    sudo yum -y install postgresql-server postgresql-contrib
 
 创建database cluster
 
