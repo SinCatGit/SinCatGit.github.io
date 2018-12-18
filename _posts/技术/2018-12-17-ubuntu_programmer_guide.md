@@ -68,9 +68,57 @@ sudo apt-get upgrade
 sudo apt-get install vim
 ```
 
+```
+sudo apt install make
+cd ~
+git clone https://github.com/SinCatGit/jon.mac.git
+cd jon.mac/vim && make
+
+```
+
 ## 安装git
 
 ```
 sudo apt-get install git
+cd ~/jon.mac/git && make
+
 ```
 
+## 安装oh-my-zsh
+    
+
+```
+sudo apt install curl
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+
+## 安装tmux
+
+```
+sudo apt install tmux
+
+```
+
+```
+cd ~/jon.mac/tmux && make
+```
+
+## 安装gdebi
+
+gdebi相比于 GUI ，在终端下安装 deb 包可以获得更多的信息提示，但是使用 dpkg 命令又无法自动解决依赖问题，因此建议使用 gdebi 安装器替代以上两者。
+
+```
+sudo apt install gdebi
+```
+
+## 安装chrome浏览器
+
+下载chrome google-chrome-stable_current_amd64.deb包
+
+安装chrome包
+
+```
+sudo gdebi  google-chrome-stable_current_amd64.deb
+```
