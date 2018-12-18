@@ -122,3 +122,146 @@ sudo apt install gdebi
 ```
 sudo gdebi  google-chrome-stable_current_amd64.deb
 ```
+
+
+## 安装docker
+
+1. 更新包索引
+
+```
+$ sudo apt-get update
+```
+
+
+2. 允许apt通过HTTPS安装软件
+
+
+```
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+```
+
+3. 添加官方GPG key
+
+
+```
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+
+通过查询最后8个字符，验证 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
+
+
+```
+$ sudo apt-key fingerprint 0EBFCD88
+
+pub   4096R/0EBFCD88 2017-02-22
+      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid                  Docker Release (CE deb) <docker@docker.com>
+sub   4096R/F273FCD8 2017-02-22
+```
+
+4. 设置stable repository
+
+
+```
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+
+5. 更新apt包索引
+
+
+```
+$ sudo apt-get update
+```
+
+6. 安装最新Docker CE
+
+```
+sudo apt-get install docker-ce
+```
+安装该包的时候，肯能因为GFW访问不了。需要科学上网一下。
+
+
+
+## 安装open jdk 8
+
+查看 [https://openjdk.java.net/install](https://openjdk.java.net/install)
+```
+$ sudo apt-get install openjdk-8-jdk
+```
+
+
+## 安装scala
+
+1. 下载安装 [https://www.scala-lang.org/download/](https://www.scala-lang.org/download/)
+
+```
+cd ~
+wget https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz
+tar -xzvf scala-2.12.8.tgz
+cd /usr/local/share/
+mv ~/scala-2.12.8 scala
+```
+
+2. 配置环境变量
+    
+修改环境变量,修改配置文件profile
+
+    sudo vim /etc/profile
+
+在文件的末尾加入
+
+    export PATH=$PATH:/usr/local/share/scala/bin
+    
+然后保存，重启终端，执行Scala命令
+
+使用了zsh终端的，可以在~/.zshrc文件末尾添加如上内容
+
+## 安装sbt
+
+下载 [https://www.scala-sbt.org/download.html](https://www.scala-sbt.org/download.html)
+```
+wget https://piccolo.link/sbt-1.2.7.tgz
+tar -xzvf sbt-1.2.7.tgz
+mv sbt /usr/local/sbt
+cd /usr/local/sbt
+vim sbt
+```
+
+添加如下内容
+
+```
+#!/bin/bash
+SBT_OPTS="-Xms512M -Xmx1536M -Xss100M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+java $SBT_OPTS -jar /usr/local/sbt/bin/sbt-launch.jar "$@"
+```
+
+修改sbt脚本权限
+
+    sudo chmod a+x sbt
+
+配置PATH环境
+
+```
+vi /etc/profile
+    export PATH=/usr/local/sbt/:$PATH # 在文件尾部添加
+```
+
+使sbt生效
+
+```
+source /etc/profile
+```
+
+测试sbt是否安装成功
+
+```
+sbt sbtVersion
+```
