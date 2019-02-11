@@ -30,6 +30,9 @@ published: true
 
     –permanent #永久生效，没有此参数重启后失效
 
+关闭端口
+
+    firewall-cmd --remove-port=5432/tcp --permanent
 
 重启防火墙
 
@@ -70,6 +73,12 @@ systemctl是Systemd的一个主命令。Systemd 并不是一个命令，而是�
     systemctl status cups.service # 查看电源管理状态
     systemctl enable cups.service # 启动电源管理开机启动 
     systemctl disable cups.service # 停止电源管理开机启动
+    
+    
+## 修改用户密码
+
+passwd root
+
      
    
     
